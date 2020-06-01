@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply p-6 font-body;
+  @apply font-body;
 }
 
 .github-corner:hover .octo-arm {
