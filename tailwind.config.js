@@ -9,11 +9,11 @@ module.exports = {
         "system-ui",
         "-apple-system",
         "Arial",
-        "Helvetica"
+        "Helvetica",
       ],
-      body: "'Source Sans Pro', Arial, Helvetica"
-    }
+      body: "Roboto, Arial, Helvetica",
+    },
   },
   variants: {},
-  plugins: []
+  plugins: [],
 };

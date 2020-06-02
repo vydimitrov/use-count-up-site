@@ -15,9 +15,9 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Source+Sans+Pro&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
-          />
+          ></link>
         </Head>
         <body>
           <Main />
@@ -33,9 +33,9 @@ class MyDocument extends Document {
               height="80"
               viewBox="0 0 250 250"
               style={{
-                fill: "#70B7FD",
+                fill: "#000",
                 color: "#fff",
-                position: "absolute",
+                position: "fixed",
                 border: 0,
                 top: 0,
                 right: 0,
@@ -56,6 +56,8 @@ class MyDocument extends Document {
               ></path>
             </svg>
           </a>
+
+          <script async defer src="https://buttons.github.io/buttons.js" />
         </body>
       </Html>
     );

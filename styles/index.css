@@ -6,6 +6,32 @@ body {
   @apply font-body;
 }
 
+section {
+  @apply my-16 max-w-screen-lg mx-auto px-8;
+}
+
+h2 {
+  @apply font-heading text-4xl text-center mb-8;
+}
+
+a.link {
+  color: #1245a8;
+}
+
+a.link:hover {
+  color: #073181;
+}
+
+header {
+  background: conic-gradient(
+    from 53deg at 62% 58%,
+    #b3efff 121deg,
+    #d7fdf0 0% 50%,
+    #b2ffd6 0% 301deg,
+    #eff7f6 0%
+  );
+}
+
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
@@ -24,6 +50,7 @@ body {
     transform: rotate(10deg);
   }
 }
+
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;
