@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CountUp } from "use-count-up";
 import fetch from "unfetch";
 import { Waypoint } from "react-waypoint";
+import { HeaderBackground } from "../components";
 
 const toLocaleStringParams = {
   options: {
@@ -11,7 +12,9 @@ const toLocaleStringParams = {
 };
 
 const HeaderComponent = (props) => {
+  const header = useRef(null);
   const [isCounting, setIsCounting] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [autoResetKey, setAutoResetKey] = useState(0);
   const [stats, setStats] = useState({ stars: 0, coverage: 0, size: 0 });
   const { stars, coverage, size } = stats;
@@ -24,6 +27,10 @@ const HeaderComponent = (props) => {
         setStats(apiStats);
       } catch (e) {}
     })();
+
+    setTimeout(() => {
+      document.documentElement.style.setProperty("--from", "70deg");
+    }, 3000);
   }, []);
 
   const countUpSharedProps = {
@@ -34,7 +41,7 @@ const HeaderComponent = (props) => {
   };
 
   return (
-    <header className="py-20 px-8 border-b border-gray-400">
+    <header ref={header} className="py-20 px-8 border-b border-gray-400">
       <div className="max-w-screen-lg mx-auto">
         <div className="text-center mb-8">
           <h1 className="font-heading text-center text-6xl mb-2">
@@ -102,6 +109,15 @@ const HeaderComponent = (props) => {
           </a>
         </div>
       </div>
+      <HeaderBackground
+        header={header}
+        isCounting={isCounting}
+        isHeaderVisible={isHeaderVisible}
+      />
+      <Waypoint
+        onEnter={() => setIsHeaderVisible(true)}
+        onLeave={() => setIsHeaderVisible(false)}
+      />
     </header>
   );
 };

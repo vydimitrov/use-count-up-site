@@ -23,11 +23,16 @@ a.link:hover {
 }
 
 header {
+  --from: 53deg;
+  --x: 62%;
+  --y: 58%;
+  --angel: 121deg;
+
   background: conic-gradient(
-    from 53deg at 62% 58%,
-    #b3efff 121deg,
+    from var(--from) at var(--x) var(--y),
+    #b3efff var(--angel),
     #d7fdf0 0% 50%,
-    #b2ffd6 0% 301deg,
+    #b2ffd6 0% calc(180deg + var(--angel)),
     #eff7f6 0%
   );
 }
