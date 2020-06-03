@@ -32,6 +32,14 @@ header {
   );
 }
 
+.react-demo-wrapper {
+  min-height: 780px;
+}
+
+.react-native-demo-wrapper {
+  min-height: 640px;
+}
+
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
