@@ -24,7 +24,7 @@ const stats = async (req, res) => {
 
     stars = githubData?.watchers_count ?? 0;
     coverage = parseFloat(codecovData?.commit?.totals?.c ?? 0);
-    size = (bundlephobiaData?.size ?? 0) * 0.001;
+    size = (bundlephobiaData?.gzip ?? 0) * 0.001;
   } catch (e) {
     console.log(e);
   } finally {

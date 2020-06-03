@@ -7,11 +7,11 @@ body {
 }
 
 section {
-  @apply my-16 max-w-screen-lg mx-auto px-8;
+  @apply my-20 max-w-screen-lg mx-auto px-8;
 }
 
 h2 {
-  @apply font-heading text-4xl text-center mb-8;
+  @apply font-heading text-4xl text-center mb-8 leading-tight;
 }
 
 a.link {
