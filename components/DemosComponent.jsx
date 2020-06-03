@@ -49,7 +49,7 @@ const DemosComponent = () => {
                 overflow: "hidden",
               }}
               title="use-count-up react demo"
-              frameborder="0"
+              frameBorder="0"
             />
           )}
         </div>
@@ -96,7 +96,7 @@ const DemosComponent = () => {
           {isReactNativeDemoVisible && (
             <iframe
               src="https://snack.expo.io/embedded/@vydimitrov/use-count-up?preview=true&platform=ios&iframeId=9tg0db7wbr&theme=dark"
-              frameborder="0"
+              frameBorder="0"
               data-snack-iframe="true"
               style={{
                 width: "100%",

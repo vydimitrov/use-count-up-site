@@ -1,8 +1,18 @@
 import { useState, useEffect } from "react";
 import { CountUp } from "use-count-up";
 import fetch from "unfetch";
+import { Waypoint } from "react-waypoint";
+
+const toLocaleStringParams = {
+  options: {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
+};
 
 const HeaderComponent = (props) => {
+  const [isCounting, setIsCounting] = useState(true);
+  const [autoResetKey, setAutoResetKey] = useState(0);
   const [stats, setStats] = useState({ stars: 0, coverage: 0, size: 0 });
   const { stars, coverage, size } = stats;
 
@@ -16,6 +26,13 @@ const HeaderComponent = (props) => {
     })();
   }, []);
 
+  const countUpSharedProps = {
+    isCounting,
+    shouldUseToLocaleString: true,
+    autoResetKey,
+    onComplete: () => setIsCounting(false),
+  };
+
   return (
     <header className="py-20 px-8 border-b border-gray-400">
       <div className="max-w-screen-lg mx-auto">
@@ -23,6 +40,7 @@ const HeaderComponent = (props) => {
           <h1 className="font-heading text-center text-6xl mb-2">
             use-count-up
           </h1>
+          <Waypoint onEnter={() => setIsCounting(true)} />
           <p>
             React/React Native component and hook to animate counting up or down
             to a number
@@ -31,24 +49,18 @@ const HeaderComponent = (props) => {
         <div className="flex mb-16">
           <div className="w-1/3 text-center">
             <div className="text-6xl leading-tight font-mono">
-              <CountUp isCounting end={stars} />
+              <CountUp {...countUpSharedProps} end={stars} />
             </div>
             <div className="text-lg">Github Stars</div>
           </div>
           <div className="w-1/3 text-center">
             <div className="text-6xl leading-tight font-mono">
               <CountUp
-                isCounting
+                {...countUpSharedProps}
                 end={coverage}
                 decimalPlaces={2}
                 suffix="%"
-                shouldUseToLocaleString
-                toLocaleStringParams={{
-                  options: {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  },
-                }}
+                toLocaleStringParams={toLocaleStringParams}
               />
             </div>
             <div className="text-lg">Code Coverage</div>
@@ -56,22 +68,17 @@ const HeaderComponent = (props) => {
           <div className="w-1/3 text-center">
             <div className="text-6xl leading-tight font-mono">
               <CountUp
-                isCounting
+                {...countUpSharedProps}
                 end={size}
                 decimalPlaces={2}
                 suffix="kB"
-                shouldUseToLocaleString
-                toLocaleStringParams={{
-                  options: {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  },
-                }}
+                toLocaleStringParams={toLocaleStringParams}
               />
             </div>
             <div className="text-lg">Minified + Gzipped Size</div>
           </div>
         </div>
+        <Waypoint onLeave={() => setAutoResetKey((prev) => prev + 1)} />
 
         <div className="text-center">
           <a
