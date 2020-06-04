@@ -37,6 +37,10 @@ header {
   );
 }
 
+header.no-conic-gradient {
+  background: #d7fdf0;
+}
+
 .react-demo-wrapper {
   min-height: 780px;
 }
