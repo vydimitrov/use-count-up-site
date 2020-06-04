@@ -11,26 +11,43 @@ const toLocaleStringParams = {
   },
 };
 
+const fetchStats = async (setStats) => {
+  try {
+    const data = await fetch("/api/stats");
+    const apiStats = await data.json();
+    setStats(apiStats);
+  } catch (e) {}
+};
+
+const getIsConicGradientSupported = () => {
+  // for SSR set it to true
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  // CUrrently Firefox and IE don't support conic gradient
+  return (
+    navigator.userAgent.indexOf("Firefox") === -1 &&
+    navigator.userAgent.indexOf("MSIE") === -1 &&
+    navigator.userAgent.indexOf("rv:") === -1
+  );
+};
+
 const HeaderComponent = (props) => {
   const header = useRef(null);
   const [isCounting, setIsCounting] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [autoResetKey, setAutoResetKey] = useState(0);
+  const [isConicGradientSupported, setIsConicGradientSupported] = useState(
+    true
+  );
   const [stats, setStats] = useState({ stars: 0, coverage: 0, size: 0 });
   const { stars, coverage, size } = stats;
 
   useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetch("/api/stats");
-        const apiStats = await data.json();
-        setStats(apiStats);
-      } catch (e) {}
-    })();
+    fetchStats(setStats);
 
-    setTimeout(() => {
-      document.documentElement.style.setProperty("--from", "70deg");
-    }, 3000);
+    setIsConicGradientSupported(getIsConicGradientSupported());
   }, []);
 
   const countUpSharedProps = {
@@ -42,7 +59,12 @@ const HeaderComponent = (props) => {
 
   return (
     <>
-      <header ref={header} className="py-20 px-8 border-b border-gray-400">
+      <header
+        ref={header}
+        className={`py-20 px-8 border-b border-gray-400 ${
+          isConicGradientSupported ? "" : "no-conic-gradient"
+        }`}
+      >
         <div className="max-w-screen-lg mx-auto">
           <div className="text-center mb-8">
             <h1 className="font-heading text-center text-6xl mb-2">
@@ -115,11 +137,13 @@ const HeaderComponent = (props) => {
             </a>
           </div>
         </div>
-        <HeaderBackground
-          header={header}
-          isCounting={isCounting}
-          isHeaderVisible={isHeaderVisible}
-        />
+        {isConicGradientSupported && (
+          <HeaderBackground
+            header={header}
+            isCounting={isCounting}
+            isHeaderVisible={isHeaderVisible}
+          />
+        )}
       </header>
       <Waypoint
         onEnter={() => setIsHeaderVisible(true)}
