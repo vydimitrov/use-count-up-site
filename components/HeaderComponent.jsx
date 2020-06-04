@@ -117,7 +117,7 @@ const HeaderComponent = (props) => {
 
           <div className="text-center">
             <a
-              className="m-a inline-flex items-center py-1 px-4 rounded bg-black hover:bg-gray-800 transition-all duration-200 text-white text-2xl"
+              className="m-a inline-flex items-center py-2 px-4 rounded bg-black hover:bg-gray-800 transition-all duration-200 text-white text-xl"
               href="https://github.com/vydimitrov/use-count-up"
               aria-label="Star vydimitrov/use-count-up on GitHub"
               target="_blank"
