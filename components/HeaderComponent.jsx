@@ -61,13 +61,13 @@ const HeaderComponent = (props) => {
     <>
       <header
         ref={header}
-        className={`py-20 px-8 border-b border-gray-400 ${
+        className={`py-12 md:py-20 px-8 border-b border-gray-400 ${
           isConicGradientSupported ? "" : "no-conic-gradient"
         }`}
       >
         <div className="max-w-screen-lg mx-auto">
           <div className="text-center mb-8">
-            <h1 className="font-heading text-center text-6xl mb-2">
+            <h1 className="font-heading text-center text-5xl md:text-6xl mb-2">
               use-count-up
             </h1>
             <Waypoint onEnter={() => setIsCounting(true)} />
@@ -76,14 +76,14 @@ const HeaderComponent = (props) => {
               down to a number
             </p>
           </div>
-          <div className="flex mb-16">
-            <div className="w-1/3 text-center">
+          <div className="md:flex">
+            <div className="md:w-1/3 mb-8 md:mb-16 text-center">
               <div className="text-6xl leading-tight font-mono">
                 <CountUp {...countUpSharedProps} end={stars} />
               </div>
               <div className="text-lg">Github Stars</div>
             </div>
-            <div className="w-1/3 text-center">
+            <div className="md:w-1/3 mb-8 md:mb-16 text-center">
               <div className="text-6xl leading-tight font-mono">
                 <CountUp
                   {...countUpSharedProps}
@@ -95,7 +95,7 @@ const HeaderComponent = (props) => {
               </div>
               <div className="text-lg">Code Coverage</div>
             </div>
-            <div className="w-1/3 text-center">
+            <div className="md:w-1/3 mb-8 md:mb-16 text-center">
               <div className="text-6xl leading-tight font-mono">
                 <CountUp
                   {...countUpSharedProps}
