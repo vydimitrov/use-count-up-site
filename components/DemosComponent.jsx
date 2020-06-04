@@ -46,6 +46,7 @@ const DemosComponent = () => {
                 height: 780,
                 border: 0,
                 borderRadius: 4,
+                borderRight: "1px solid black",
                 overflow: "hidden",
               }}
               title="use-count-up react demo"
