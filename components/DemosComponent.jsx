@@ -37,6 +37,10 @@ const DemosComponent = () => {
           </a>
           .
         </p>
+        <p className="mb-8">
+          Just plug in the values you need and see how the count-up animation
+          will look like on your website or app.
+        </p>
         <div className="react-demo-wrapper">
           {isReactDemoVisible && (
             <iframe
@@ -62,8 +66,8 @@ const DemosComponent = () => {
           <Waypoint onEnter={() => setIsReactNativeDemoVisible(true)} />
         )}
         <p className="mb-4">
-          Web and Mobile are sharing the same props and methods. The full list
-          can be found on{" "}
+          Web and Mobile share the same props and methods. The full list can be
+          found on{" "}
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -82,7 +86,7 @@ const DemosComponent = () => {
           >
             this post
           </a>
-          . Anyhow you are covered with{" "}
+          . In any case you are covered with{" "}
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -92,6 +96,12 @@ const DemosComponent = () => {
             fallback options
           </a>
           .
+        </p>
+
+        <p className="mb-8">
+          I am more than certain that React Native developers are very skilled.
+          So all you need to do is modify the prop values on the left and see
+          the result live in the right field.
         </p>
         <div className="react-native-demo-wrapper">
           {isReactNativeDemoVisible && (

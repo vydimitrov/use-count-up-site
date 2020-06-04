@@ -24,6 +24,7 @@ const Home = () => {
           >
             Github page
           </a>
+          .
         </p>
       </section>
 
