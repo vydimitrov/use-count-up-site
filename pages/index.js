@@ -2,6 +2,7 @@ import {
   HeaderComponent,
   DemosComponent,
   FeaturesComponent,
+  FooterComponent,
 } from "../components";
 
 const Home = () => {
@@ -25,6 +26,8 @@ const Home = () => {
           </a>
         </p>
       </section>
+
+      <FooterComponent />
     </>
   );
 };

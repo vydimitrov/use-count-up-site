@@ -11,7 +11,7 @@ module.exports = {
         "Arial",
         "Helvetica",
       ],
-      body: "Roboto, Arial, Helvetica",
+      body: "'Open Sans', Arial, Helvetica",
     },
   },
   variants: {},
