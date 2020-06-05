@@ -35,7 +35,8 @@ const getIsConicGradientSupported = () => {
 
 const HeaderComponent = (props) => {
   const header = useRef(null);
-  const [isCounting, setIsCounting] = useState(true);
+  const [isCounting, setIsCounting] = useState(false);
+  const [areStatsFetched, setAreStatsFetched] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [autoResetKey, setAutoResetKey] = useState(0);
   const [isConicGradientSupported, setIsConicGradientSupported] = useState(
@@ -45,7 +46,15 @@ const HeaderComponent = (props) => {
   const { stars, coverage, size } = stats;
 
   useEffect(() => {
-    fetchStats(setStats);
+    (async () => {
+      try {
+        const data = await fetch("/api/stats");
+        const apiStats = await data.json();
+        setStats(apiStats);
+        setAreStatsFetched(true);
+        setIsCounting(true);
+      } catch (e) {}
+    })();
 
     setIsConicGradientSupported(getIsConicGradientSupported());
   }, []);
@@ -67,10 +76,12 @@ const HeaderComponent = (props) => {
       >
         <div className="max-w-screen-lg mx-auto">
           <div className="text-center mb-8">
-            <h1 className="font-heading text-center text-5xl leading-tight md:text-6xl mb-2">
+            <h1 className="font-heading text-center leading-tight text-5xl md:text-6xl mb-2">
               use-count-up
             </h1>
-            <Waypoint onEnter={() => setIsCounting(true)} />
+            {areStatsFetched && (
+              <Waypoint onEnter={() => setIsCounting(true)} />
+            )}
             <p>
               React/React Native component and hook to animate counting up or
               down to a number
@@ -78,13 +89,13 @@ const HeaderComponent = (props) => {
           </div>
           <div className="md:flex">
             <div className="md:w-1/3 mb-8 md:mb-16 text-center">
-              <div className="text-6xl leading-tight font-mono">
+              <div className="text-5xl md:text-6xl leading-tight font-mono">
                 <CountUp {...countUpSharedProps} end={stars} />
               </div>
               <div className="text-lg">Github Stars</div>
             </div>
             <div className="md:w-1/3 mb-8 md:mb-16 text-center">
-              <div className="text-6xl leading-tight font-mono">
+              <div className="text-5xl md:text-6xl leading-tight font-mono">
                 <CountUp
                   {...countUpSharedProps}
                   end={coverage}
@@ -96,7 +107,7 @@ const HeaderComponent = (props) => {
               <div className="text-lg">Code Coverage</div>
             </div>
             <div className="md:w-1/3 mb-8 md:mb-16 text-center">
-              <div className="text-6xl leading-tight font-mono">
+              <div className="text-5xl md:text-6xl leading-tight font-mono">
                 <CountUp
                   {...countUpSharedProps}
                   end={size}
@@ -108,14 +119,16 @@ const HeaderComponent = (props) => {
               <div className="text-lg">Minified + Gzipped Size</div>
             </div>
           </div>
-          <Waypoint
-            onLeave={({ currentPosition }) => {
-              if (currentPosition === "above") {
-                setIsCounting(false);
-                setAutoResetKey((prev) => prev + 1);
-              }
-            }}
-          />
+          {areStatsFetched && (
+            <Waypoint
+              onLeave={({ currentPosition }) => {
+                if (currentPosition === Waypoint.above) {
+                  setIsCounting(false);
+                  setAutoResetKey((prev) => prev + 1);
+                }
+              }}
+            />
+          )}
 
           <div className="text-center">
             <a
@@ -142,8 +155,7 @@ const HeaderComponent = (props) => {
         {isConicGradientSupported && (
           <HeaderBackground
             header={header}
-            isCounting={isCounting}
-            isHeaderVisible={isHeaderVisible}
+            isPlaying={isHeaderVisible && !isCounting && areStatsFetched}
           />
         )}
       </header>

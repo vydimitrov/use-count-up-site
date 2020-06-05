@@ -36,9 +36,8 @@ const getNewEndValues = () => ({
 
 // create a new component just for the background animation
 // because use-elapsed-time will cause the component to rerender on every frame
-const HeaderBackground = ({ header, isCounting, isHeaderVisible }) => {
+const HeaderBackground = ({ header, isPlaying }) => {
   const duration = 6;
-  const isPlaying = isHeaderVisible && !isCounting;
   const startValues = useRef(initialValues);
   const endValues = useRef(getNewEndValues());
 
