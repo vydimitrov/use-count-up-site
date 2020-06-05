@@ -67,7 +67,7 @@ const HeaderComponent = (props) => {
       >
         <div className="max-w-screen-lg mx-auto">
           <div className="text-center mb-8">
-            <h1 className="font-heading text-center text-5xl md:text-6xl mb-2">
+            <h1 className="font-heading text-center text-5xl leading-tight md:text-6xl mb-2">
               use-count-up
             </h1>
             <Waypoint onEnter={() => setIsCounting(true)} />
@@ -109,9 +109,11 @@ const HeaderComponent = (props) => {
             </div>
           </div>
           <Waypoint
-            onLeave={() => {
-              setIsCounting(false);
-              setAutoResetKey((prev) => prev + 1);
+            onLeave={({ currentPosition }) => {
+              if (currentPosition === "above") {
+                setIsCounting(false);
+                setAutoResetKey((prev) => prev + 1);
+              }
             }}
           />
 
