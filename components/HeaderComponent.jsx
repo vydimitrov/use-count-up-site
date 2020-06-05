@@ -70,13 +70,13 @@ const HeaderComponent = (props) => {
     <>
       <header
         ref={header}
-        className={`py-12 md:py-20 px-8 border-b border-gray-400 ${
+        className={`py-12 md:py-20 px-4 border-b border-gray-400 ${
           isConicGradientSupported ? "" : "no-conic-gradient"
         }`}
       >
         <div className="max-w-screen-lg mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="font-heading text-center leading-tight text-5xl md:text-6xl mb-2">
+          <div className="text-center mb-4 md:mb-8">
+            <h1 className="font-heading text-center leading-none md:leading-tight text-5xl md:text-6xl mb-2">
               use-count-up
             </h1>
             {areStatsFetched && (
