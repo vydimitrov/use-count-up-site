@@ -18,12 +18,6 @@ const FeaturesComponent = () => {
           </span>
         </li>
         <li className="md:w-1/2 flex mb-2">
-          <span className="pr-2">📜</span>
-          <span>
-            Support <code>toLocaleString</code> with fallback options
-          </span>
-        </li>
-        <li className="md:w-1/2 flex mb-2">
           <span className="pr-2">🎏</span>
           <span>
             Declarative API -&nbsp;
@@ -34,12 +28,22 @@ const FeaturesComponent = () => {
           </span>
         </li>
         <li className="md:w-1/2 flex mb-2">
+          <span className="pr-2">📜</span>
+          <span>
+            Support <code>toLocaleString</code> with fallback options
+          </span>
+        </li>
+        <li className="md:w-1/2 flex mb-2">
           <span className="pr-2">&nbsp;📱</span>
           <span>React Native support for iOS and Android</span>
         </li>
         <li className="md:w-1/2 flex mb-2">
           <span className="pr-2">⚡</span>
           <span>Built with TypeScript</span>
+        </li>
+        <li className="md:w-1/2 flex mb-2">
+          <span className="pr-2">&nbsp;🗄️</span>
+          <span>Server-side rendering (SSR) compatibility</span>
         </li>
       </ul>
     </section>
