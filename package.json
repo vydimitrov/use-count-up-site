@@ -31,7 +31,7 @@
     "react-waypoint": "9.0.3",
     "unfetch": "4.1.0",
     "use-count-up": "2.2.5",
-    "use-elapsed-time": "2.1.4"
+    "use-elapsed-time": "2.1.5"
   },
   "devDependencies": {
     "postcss-preset-env": "6.7.0",
