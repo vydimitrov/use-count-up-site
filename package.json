@@ -26,8 +26,8 @@
   "dependencies": {
     "next": "10.0.6",
     "node-fetch": "2.6.1",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-waypoint": "9.0.3",
     "unfetch": "4.2.0",
     "use-count-up": "2.2.5",
