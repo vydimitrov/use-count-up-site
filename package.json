@@ -27,13 +27,13 @@
     "autoprefixer": "^10.2.4",
     "next": "10.0.6",
     "node-fetch": "2.6.1",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-waypoint": "9.0.3",
-    "tailwindcss": "^2.0.2",
+    "tailwindcss": "^2.0.3",
     "unfetch": "4.2.0",
-    "use-count-up": "2.2.5",
+    "use-count-up": "2.3.0",
     "use-elapsed-time": "2.1.6"
   }
 }
