@@ -27,7 +27,7 @@
     "autoprefixer": "^10.2.4",
     "next": "10.0.6",
     "node-fetch": "2.6.1",
-    "postcss": "^8.2.5",
+    "postcss": "^8.2.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-waypoint": "9.0.3",
