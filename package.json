@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/vydimitrov/use-count-up-site#readme",
   "dependencies": {
-    "autoprefixer": "^10.2.4",
-    "next": "10.0.7",
+    "autoprefixer": "^10.2.5",
+    "next": "10.0.8",
     "node-fetch": "2.6.1",
-    "postcss": "^8.2.6",
+    "postcss": "^8.2.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-waypoint": "9.0.3",
