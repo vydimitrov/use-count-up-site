@@ -25,13 +25,13 @@
   "homepage": "https://github.com/vydimitrov/use-count-up-site#readme",
   "dependencies": {
     "autoprefixer": "^10.2.5",
-    "next": "10.0.8",
+    "next": "10.0.9",
     "node-fetch": "2.6.1",
     "postcss": "^8.2.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-waypoint": "9.0.3",
-    "tailwindcss": "^2.0.3",
+    "tailwindcss": "^2.0.4",
     "unfetch": "4.2.0",
     "use-count-up": "2.3.0",
     "use-elapsed-time": "2.1.6"
