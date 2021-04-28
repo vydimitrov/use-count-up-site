@@ -30,7 +30,7 @@
     "postcss": "^8.2.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-waypoint": "9.0.3",
+    "react-waypoint": "10.1.0",
     "tailwindcss": "^2.1.2",
     "unfetch": "4.2.0",
     "use-count-up": "2.3.1",
