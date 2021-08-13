@@ -25,7 +25,7 @@
   "homepage": "https://github.com/vydimitrov/use-count-up-site#readme",
   "dependencies": {
     "autoprefixer": "^10.2.5",
-    "next": "10.2.0",
+    "next": "11.1.0",
     "node-fetch": "2.6.1",
     "postcss": "^8.2.14",
     "react": "17.0.2",
